@@ -29,7 +29,7 @@ class conectar extends PDO
     {
         $this->getInstance();
         $this->query = $query;
-        $pdo = null;
+        $pdo = null; // Não é totalmente necessário, visto que tem maneiras mais otimizadas. 
         $stmt = $pdo->prepare($this->query);
         $stmt->execute();
     }
