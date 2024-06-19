@@ -2,36 +2,55 @@
 include_once 'Conectar.php';
 
 // Atributos
-class produtos
+class autor
 {
-    private $id;
-    private $nome;
-    private $estoque;
+    private $Cod_autor;
+    private $NomeAutor;
+    private $Sobrenome;
+    private $Email;
+    private $Nasc;
     private $conn;
 
+
     // getter e setter
-    public function getId() {
-        return $this->id;
+    public function getCod_autor() {
+        return $this->Cod_autor;
     }
     
-    public function setId($iid) {
-        $this->id = $iid;
+    public function setCod_autor($Cod_autorr) {
+        $this->id = $Cod_autorr;
     }
     
-    public function getNome() {
-        return $this->nome;
+    public function getNomeAutor() {
+        return $this->NomeAutor;
     }
     
-    public function setNome($name) {
-        $this->nome = $name;
+    public function setNomeAutor($NomeAutorr) {
+        $this->nome = $NomeAutorr;
     }
     
-    public function getEstoque() {
-        return $this->estoque;
+    public function getSobrenome() {
+        return $this->Sobrenome;
     }
     
-    public function setEstoque($estoqui) {
-        $this->estoque = $estoqui;
+    public function setSobrenome($Sobrenomee) {
+        $this->estoque = $Sobrenomee;
+    }
+
+    public function getEmail() {
+        return $this->Email;
+    }
+    
+    public function setEmail($Emaill) {
+        $this->estoque = $Emaill;
+    }
+
+    public function getNasc() {
+        return $this->Nasc;
+    }
+    
+    public function setNasc($Nascc) {
+        $this->estoque = $Nascc;
     }
     
     // métodos
@@ -134,13 +153,13 @@ class produtos
     {
         try {
             $this->conn = new conectar();
-            $sql = $this->conn->prepare("select * from produtos order by nome");
+            $sql = $this->conn->prepare("select * from autor order by Nasc");
             $sql -> execute();
             return $sql->fetchAll();
             $this->conn = null;
         }
         catch (PDOException $exc) {
-            echo "Erro ao listar Produto: " . $exc -> getMessage();
+            echo "Erro ao listar autor: " . $exc -> getMessage();
         }
     }
 }
