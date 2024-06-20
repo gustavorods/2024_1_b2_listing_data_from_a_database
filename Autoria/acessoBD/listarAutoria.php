@@ -53,7 +53,7 @@
 <body>
     <div id="container">
         <div id="cabecalho">
-            <h1>Relação de Produtos Cadastrados</h1>
+            <h1>Itens tabela "Autoria"</h1>
         </div>
 
         <table id="tabela">
