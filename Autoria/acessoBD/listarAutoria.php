@@ -58,27 +58,25 @@
 
         <table id="tabela">
             <tr>
-                <th>Cod_autor</th>
-                <th>Email</th>
-                <th>Nascimento</th>
-                <th>Nome</th>
-                <th>Sobrenome</th>
+                <th>código autor</th>
+                <th>código livro</th>
+                <th>Data de lançamento</th>
+                <th>Editora</th>
             </tr>
 
             <?php
-            include_once 'autor.php';
+            include_once 'autoria.php';
 
-            $p = new autor();
+            $p = new autoria();
             $pro_bd = $p->listar();
 
             foreach ($pro_bd as $pro_mostrar) {
-                ?>  
+                ?>    
                 <tr>
-                    <td><?php echo $pro_mostrar[0]; ?></td>
+                    <td><?php echo $pro_mostrar[0]; ?></td1>
                     <td><?php echo $pro_mostrar[1]; ?></td>
                     <td><?php echo $pro_mostrar[2]; ?></td>
                     <td><?php echo $pro_mostrar[3]; ?></td>
-                    <td><?php echo $pro_mostrar[4]; ?></td>
                 </tr>
                 <?php
             }
