@@ -36,14 +36,14 @@ class produtos
     
     // métodos
 
-    function salva()
+    function salvar()
     {
         try
         {
             $this-> conn = new Conectar();
-            $sql = $this->conn->prepare("insert into produto values (null, ?,?)");
-            @sql-> bindParam(1, $this->getNome(), PDO::PARAM_STR);
-            @sql-> bindParam(2, $this->getEstoque(), PDO::PARAM_STR);
+            $sql = $this->conn->prepare("insert into produtos values (null, ?,?)");
+            @$sql->bindParam(1, $this->getNome(), PDO::PARAM_STR);
+            @$sql->bindParam(2, $this->getEstoque(), PDO::PARAM_STR);
             if($sql->execute() == 1)
             {
                 return "Registro salvo com sucesso!";
