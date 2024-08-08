@@ -13,11 +13,11 @@ class autoria
 
     // getter e setter
     public function getcod_autor() {
-        return $this->Cod_autor;
+        return $this->cod_autor;
     }
     
     public function setcod_autor($cod_autorr) {
-        $this->id = $cod_autorr;
+        $this->cod_autor = $cod_autorr;
     }
     
     public function getcod_livro() {
@@ -25,7 +25,7 @@ class autoria
     }
     
     public function setcod_livro($cod_livroo) {
-        $this->nome = $cod_livroo;
+        $this->cod_livro = $cod_livroo;
     }
     
     public function getdataLancamento() {
@@ -33,7 +33,7 @@ class autoria
     }
     
     public function setdataLancamento($dataLancamentoo) {
-        $this->estoque = $dataLancamentoo;
+        $this->dataLancamento = $dataLancamentoo;
     }
 
     public function geteditora() {
@@ -41,20 +41,22 @@ class autoria
     }
     
     public function seteditora($editoraa) {
-        $this->estoque = $editoraa;
+        $this->editora = $editoraa;
     }
     
     
     // métodos
 
-    function salva()
+    function salvar()
     {
         try
         {
             $this-> conn = new Conectar();
-            $sql = $this->conn->prepare("insert into produto values (null, ?,?)");
-            @sql-> bindParam(1, $this->getNome(), PDO::PARAM_STR);
-            @sql-> bindParam(2, $this->getEstoque(), PDO::PARAM_STR);
+            $sql = $this->conn->prepare("insert into autoria values (?,?,?,?)");
+            @$sql-> bindParam(1, $this->getcod_autor(), PDO::PARAM_STR);
+            @$sql-> bindParam(2, $this->getcod_livro(), PDO::PARAM_STR);
+            @$sql-> bindParam(3, $this->getdataLancamento(), PDO::PARAM_STR);
+            @$sql-> bindParam(4, $this->geteditora(), PDO::PARAM_STR);
             if($sql->execute() == 1)
             {
                 return "Registro salvo com sucesso!";

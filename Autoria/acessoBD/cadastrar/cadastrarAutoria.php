@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela de Cadastro</title>
+    <title>Tela de Cadastro de Livro</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -35,7 +35,7 @@
             margin-bottom: 5px;
             font-weight: bold;
         }
-        .form-group input {
+        .form-group input, .form-group select {
             width: 100%;
             padding: 8px;
             border: 1px solid #ddd;
@@ -63,33 +63,41 @@
         .button-group button:hover {
             opacity: 0.9;
         }
+        .button-group a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .button-group a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Cadastro</h2>
-        <form name="cliente" method="POST" action="">
+        <h2>Cadastro de Livro</h2>
+        <form name="livro" method="POST" action="">
             <div class="form-group">
-                <label for="nome">Nome do Autor:</label>
-                <input type="text" id="nome" name="nome" required>
+                <label for="codigo-autor">Código do Autor:</label>
+                <input type="text" id="codigo-autor" name="codigoAutor" required>
             </div>
             <div class="form-group">
-                <label for="sobrenome">Sobrenome:</label>
-                <input type="text" id="sobrenome" name="sobrenome" required>
+                <label for="codigo-livro">Código do Livro:</label>
+                <input type="text" id="codigo-livro" name="codigoLivro" required>
             </div>
             <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <label for="data-lancamento">Data de Lançamento:</label>
+                <input type="date" id="data-lancamento" name="dataLancamento" required>
             </div>
             <div class="form-group">
-                <label for="data-nascimento">Data de Nascimento:</label>
-                <input type="date" id="data-nascimento" name="dataNascimento" required>
+                <label for="editora">Editora:</label>
+                <input type="text" id="editora" name="editora" required>
             </div>
             <div class="button-group">
                 <button type="submit" class="enviar" name="btnEnviar">Enviar</button>
                 <button type="reset" class="resetar">Resetar</button>
-                <br><br>
-                <button><a href="../../menu_autoria.html"> Voltar </a></button>
+                <a href="../../menu_autoria.html">
+                    <button type="button">Voltar</button>
+                </a>
             </div>
         </form>
     </div>
@@ -97,14 +105,15 @@
     <?php
     extract($_POST, EXTR_OVERWRITE);
     if(isset($btnEnviar)) {
-        include_once '../autor.php';
-        $pro=new autor();
-        $pro->setNomeAutor($nome);
-        $pro->setSobrenome($sobrenome);
-        $pro->setEmail($email);
-        $pro->setNasc($dataNascimento);
+        include_once '../autoria.php';
+        $pro = new autoria();
+        $pro->setcod_autor($codigoAutor);
+        $pro->setcod_livro($codigoLivro);
+        $pro->setdataLancamento($dataLancamento);
+        $pro->seteditora($editora);
         echo "<h3><br><br>" . $pro->salvar() . "</h3>";
     }
     ?>
+
 </body>
 </html>

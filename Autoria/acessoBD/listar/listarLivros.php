@@ -53,37 +53,40 @@
 <body>
     <div id="container">
         <div id="cabecalho">
-            <h1>Itens tabela "Autoria"</h1>
+            <h1>Itens tabela "Livros"</h1>
         </div>
 
         <table id="tabela">
             <tr>
-                <th>código autor</th>
-                <th>código livro</th>
-                <th>Data de lançamento</th>
-                <th>Editora</th>
+                <th>Categorias</th>
+                <th>Código livro</th>
+                <th>Idioma</th>
+                <th>ISBN</th>
+                <th>QtdePag</th>
+                <th>titulo</th>
             </tr>
 
             <?php
-            include_once 'autoria.php';
-
-            $p = new autoria();
+            include_once '../livro.php';
+            $p = new livro();
             $pro_bd = $p->listar();
 
-            foreach ($pro_bd as $pro_mostrar) {
-                ?>    
+            foreach($pro_bd as $pro_mostrar) {
+                ?>
                 <tr>
-                    <td><?php echo $pro_mostrar[0]; ?></td1>
+                    <td><?php echo $pro_mostrar[0]; ?></td>
                     <td><?php echo $pro_mostrar[1]; ?></td>
                     <td><?php echo $pro_mostrar[2]; ?></td>
                     <td><?php echo $pro_mostrar[3]; ?></td>
+                    <td><?php echo $pro_mostrar[4]; ?></td>
+                    <td><?php echo $pro_mostrar[5]; ?></td>
                 </tr>
                 <?php
             }
             ?>
         </table>
 
-        <a href="../menu_autoria.html" id="botao-menu">Voltar ao Menu</a>
+        <a href="../../menu_autoria.html" id="botao-menu">Voltar ao Menu</a>
     </div>
 </body>
 </html>

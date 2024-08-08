@@ -66,7 +66,7 @@
             </tr>
 
             <?php
-            include_once 'autor.php';
+            include_once '../autor.php';
 
             $p = new autor();
             $pro_bd = $p->listar();
@@ -85,7 +85,7 @@
             ?>
         </table>
 
-        <a href="../menu_autoria.html" id="botao-menu">Voltar ao Menu</a>
+        <a href="../../menu_autoria.html" id="botao-menu">Voltar ao Menu</a>
     </div>
 </body>
 </html>
