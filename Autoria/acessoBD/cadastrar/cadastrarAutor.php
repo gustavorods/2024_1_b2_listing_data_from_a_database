@@ -68,7 +68,7 @@
 <body>
     <div class="container">
         <h2>Cadastro</h2>
-        <form>
+        <form name="cliente" method="POST" action="">
             <div class="form-group">
                 <label for="nome">Nome do Autor:</label>
                 <input type="text" id="nome" name="nome" required>
@@ -83,13 +83,30 @@
             </div>
             <div class="form-group">
                 <label for="data-nascimento">Data de Nascimento:</label>
-                <input type="date" id="data-nascimento" name="data-nascimento" required>
+                <input type="date" id="data-nascimento" name="dataNascimento" required>
             </div>
             <div class="button-group">
-                <button type="submit" class="enviar">Enviar</button>
+                <button type="submit" class="enviar" name="btnEnviar">Enviar</button>
                 <button type="reset" class="resetar">Resetar</button>
             </div>
         </form>
     </div>
+
+    <?php
+    extract($_POST, EXTR_OVERWRITE);
+    if(isset($btnEnviar)) {
+        include_once '../autor.php';
+        $pro=new autor();
+        $pro->setNomeAutor($nome);
+        $pro->setSobrenome($sobrenome);
+        $pro->setEmail($email);
+        $pro->setNasc($dataNascimento);
+        echo "<h3><br><br>" . $pro->salvar() . "</h3>";
+    }
+    ?>
+    <center>
+        <button><a href=".././menu_autoria.html"> Voltar </a></button>
+    </center>
+
 </body>
 </html>

@@ -18,7 +18,7 @@ class autor
     }
     
     public function setCod_autor($Cod_autorr) {
-        $this->id = $Cod_autorr;
+        $this->Cod_autor = $Cod_autorr;
     }
     
     public function getNomeAutor() {
@@ -26,7 +26,7 @@ class autor
     }
     
     public function setNomeAutor($NomeAutorr) {
-        $this->nome = $NomeAutorr;
+        $this->NomeAutor = $NomeAutorr;
     }
     
     public function getSobrenome() {
@@ -34,7 +34,7 @@ class autor
     }
     
     public function setSobrenome($Sobrenomee) {
-        $this->estoque = $Sobrenomee;
+        $this->Sobrenome = $Sobrenomee;
     }
 
     public function getEmail() {
@@ -42,7 +42,7 @@ class autor
     }
     
     public function setEmail($Emaill) {
-        $this->estoque = $Emaill;
+        $this->Email = $Emaill;
     }
 
     public function getNasc() {
@@ -50,19 +50,21 @@ class autor
     }
     
     public function setNasc($Nascc) {
-        $this->estoque = $Nascc;
+        $this->Nasc = $Nascc;
     }
     
     // métodos
 
-    function salva()
+    function salvar()
     {
         try
         {
             $this-> conn = new Conectar();
-            $sql = $this->conn->prepare("insert into produto values (null, ?,?)");
-            @sql-> bindParam(1, $this->getNome(), PDO::PARAM_STR);
-            @sql-> bindParam(2, $this->getEstoque(), PDO::PARAM_STR);
+            $sql = $this->conn->prepare("insert into autor values (null, ?,?,?,?)");
+            @$sql->bindParam(1, $this->getNomeAutor(), PDO::PARAM_STR);
+            @$sql->bindParam(2, $this->getSobrenome(), PDO::PARAM_STR);
+            @$sql->bindParam(3, $this->getEmail(), PDO::PARAM_STR);
+            @$sql->bindParam(4, $this->getNasc(), PDO::PARAM_STR);
             if($sql->execute() == 1)
             {
                 return "Registro salvo com sucesso!";
