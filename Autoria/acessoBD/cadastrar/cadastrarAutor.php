@@ -105,7 +105,7 @@
     }
     ?>
     <center>
-        <button><a href=".././menu_autoria.html"> Voltar </a></button>
+        <button><a href="../../menu_autoria.html"> Voltar </a></button>
     </center>
 
 </body>
