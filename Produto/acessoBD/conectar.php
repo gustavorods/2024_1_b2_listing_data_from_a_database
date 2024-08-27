@@ -3,7 +3,7 @@ class conectar extends PDO
 {
     private static $instancia;
     private $query;
-    private $host = "127.0.0.1";
+    private $host = "localhost";
     private $usuario = "root";
     private $senha = "";
     private $db = "exemplocurso";
