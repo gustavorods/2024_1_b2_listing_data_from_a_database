@@ -34,13 +34,13 @@
                         ?>
                         <br>
                         <br> <b> 
-                            <?php echo "ID: " . pro_mostrar[0]; ?> &nbsp;&nbsp;&nbsp;&nbsp;
+                            <?php echo "ID: " . $pro_mostrar[0]; ?> &nbsp;&nbsp;&nbsp;&nbsp;
                         </b>
                         <br> <b> 
-                            <?php echo "Nome: " . pro_mostrar[1]; ?> &nbsp;&nbsp;&nbsp;&nbsp;
+                            <?php echo "Nome: " . $pro_mostrar[1]; ?> &nbsp;&nbsp;&nbsp;&nbsp;
                         </b>
                         <br> <b> 
-                            <?php echo "Estoque: " . pro_mostrar[2]; ?> &nbsp;&nbsp;&nbsp;&nbsp;
+                            <?php echo "Estoque: " . $pro_mostrar[2]; ?> &nbsp;&nbsp;&nbsp;&nbsp;
                         </b>
                         <?php
                     }
