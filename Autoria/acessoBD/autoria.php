@@ -112,8 +112,8 @@ class autoria
         try
         {
             $this-> conn = new Conectar();
-            $sql = $this->conn->prepare("Select * from produto where nome like ?");
-            @sql-> bindParam(1, $this->getNome(), PDO::PARAM_STR); 
+            $sql = $this->conn->prepare("Select * from autoria where Editora like ?");
+            @$sql-> bindParam(1, $this->geteditora(), PDO::PARAM_STR); 
             $sql->execute();
             return $sql->fetchAll ();
             $this->conn = null;
