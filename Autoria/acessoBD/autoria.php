@@ -129,8 +129,8 @@ class autoria
         try
         {
             $this-> conn = new Conectar();
-            $sql = $this->conn->prepare("delete from produto where id = ?");
-            @sql-> bindParam(1, $this->getId(), PDO::PARAM_STR);
+            $sql = $this->conn->prepare("delete from autoria where Editora = ?");
+            @$sql-> bindParam(1, $this->geteditora(), PDO::PARAM_STR);
             if($sql->execute() == 1) 
             {
                 return "Excluido com sucesso!";
