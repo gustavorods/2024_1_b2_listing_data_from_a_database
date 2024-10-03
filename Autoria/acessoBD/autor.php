@@ -100,11 +100,11 @@ class autor
         {
             $this-> conn = new Conectar();
             $sql = $this->conn->prepare("update autor set NomeAutor = ?, Sobrenome = ?, Email = ?, Nasc = ? WHERE Cod_Autor = ?");
-            @$sql-> bindParam(1, $this->getNome(), PDO::PARAM_STR);
-            @$sql-> bindParam(2, $this->getEstoque(), PDO::PARAM_STR);
-            @$sql-> bindParam(3, $this->getId(), PDO::PARAM_STR);
-            @$sql-> bindParam(3, $this->getId(), PDO::PARAM_STR);
-            @$sql-> bindParam(3, $this->getId(), PDO::PARAM_STR);
+            @$sql-> bindParam(1, $this->getNomeAutor(), PDO::PARAM_STR);
+            @$sql-> bindParam(2, $this->getSobrenome(), PDO::PARAM_STR);
+            @$sql-> bindParam(3, $this->getEmail(), PDO::PARAM_STR);
+            @$sql-> bindParam(4, $this->getNasc(), PDO::PARAM_STR);
+            @$sql-> bindParam(5, $this->getCod_autor(), PDO::PARAM_STR);
             
             if($sql->execute() == 3) 
             {

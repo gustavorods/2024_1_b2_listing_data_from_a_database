@@ -75,10 +75,10 @@
                 ?>  
                 <tr>
                     <td><?php echo $pro_mostrar[0]; ?></td>
-                    <td><?php echo $pro_mostrar[1]; ?></td>
-                    <td><?php echo $pro_mostrar[2]; ?></td>
                     <td><?php echo $pro_mostrar[3]; ?></td>
                     <td><?php echo $pro_mostrar[4]; ?></td>
+                    <td><?php echo $pro_mostrar[1]; ?></td>
+                    <td><?php echo $pro_mostrar[2]; ?></td>
                 </tr>
                 <?php
             }

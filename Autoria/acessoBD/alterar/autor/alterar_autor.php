@@ -63,13 +63,13 @@
 </head>
 <body>
     <fieldset>
-        <legend>Alterar Livros Cadastrados</legend>
+        <legend>Alterar Autores Cadastrados</legend>
 
         <?php
-            $txt_id = $_POST["livro-id"];
-            include_once '../../livro.php';
-            $p = new livro();
-            $p->setCod_livro($txt_id);
+            $txt_id = $_POST["autor-id"];
+            include_once '../../autor.php';
+            $p = new autor();
+            $p->setCod_autor($txt_id);
             $pro_bd = $p->alterar(); 
         ?>
 
@@ -78,20 +78,17 @@
                 <input type="hidden" name="txt_id" value='<?php echo $pro_mostrar[0]; ?>'>
                 <b>ID:</b> <?php echo $pro_mostrar[0]; ?><br>
                 
-                <b>Titulo:</b>
-                <input type="text" name="txt_titulo" value='<?php echo $pro_mostrar[1]; ?>'><br>
+                <b>Nome:</b>
+                <input type="text" name="txt_nome" value='<?php echo $pro_mostrar[1]; ?>'><br>
                 
-                <b>Categoria:</b>
-                <input type="text" name="txt_categoria" value='<?php echo $pro_mostrar[2]; ?>'><br>
+                <b>Sobrenome:</b>
+                <input type="text" name="txt_sobrenome" value='<?php echo $pro_mostrar[2]; ?>'><br>
 
-                <b>ISBN:</b>
-                <input type="text" name="txt_ISBN" value='<?php echo $pro_mostrar[3]; ?>'><br>
+                <b>Emai:</b>
+                <input type="text" name="txt_email" value='<?php echo $pro_mostrar[3]; ?>'><br>
 
-                <b>Idioma:</b>
-                <input type="text" name="txt_idioma" value='<?php echo $pro_mostrar[4]; ?>'><br>
-
-                <b>Quantidade de páginas:</b>
-                <input type="text" name="txt_qtnd_pag" value='<?php echo $pro_mostrar[5]; ?>'><br>
+                <b>Data de nascimento:</b>
+                <input type="date" name="data_data_nacimento" value='<?php echo $pro_mostrar[4]; ?>'><br>
 
                 <input type="submit" name="btn_alterar" value="Alterar">
                 <a href="../../../menu_autoria.html" class="btn-link">Voltar</a>
@@ -102,16 +99,15 @@
     <?php
     extract($_POST, EXTR_OVERWRITE);
     if(isset($btn_alterar)) {
-        include_once '../../livro.php';
-        $pro = new livro();
-        $pro->setCategoria($txt_categoria);
-        $pro->setCod_livro($txt_id);
-        $pro->setIdioma($txt_idioma);
-        $pro->setISBN($txt_ISBN);
-        $pro->setQtdePag($txt_qtnd_pag);
-        $pro->setTitulo($txt_titulo);
+        include_once '../../autor.php';
+        $pro = new autor();
+        $pro->setCod_autor($txt_id);
+        $pro->setNomeAutor($txt_nome);
+        $pro->setSobrenome($txt_sobrenome);
+        $pro->setEmail($txt_email);
+        $pro->setNasc($data_data_nacimento);
         echo "<br><br><h3>" . $pro->alterar2() . "</h3>";
-        header("location:consult_alt_livro.php");
+        header("location:consult_alt_autor.php");
     }
     ?>
     <center> <br><br><br><br>

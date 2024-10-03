@@ -103,7 +103,7 @@
         <h1>Alteração de Autores Cadastrados</h1>
         <form action="./alterar_autor.php" method="POST" name="cliente">
             <label for="autor-id">Informe o ID do autor desejado:</label>
-            <input type="text" id="livro-id" name="autor-id" placeholder="Digite o ID do autor" required>
+            <input type="text" id="autor-id" name="autor-id" placeholder="Digite o ID do autor" required>
 
             <div class="buttons">
                 <button type="submit">Enviar</button>
